@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<logger>
+    <type>file</type>
+    <path>C:\Users\arturto\IdeaProjects\logging\Log.log</path>
+    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+</logger>

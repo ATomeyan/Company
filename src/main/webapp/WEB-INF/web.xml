@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>AttendanceRecordServlet</servlet-name>
+        <servlet-class>com.company.web.AttendanceRecordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AttendanceRecordServlet</servlet-name>
+        <url-pattern>/AttendanceRecordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <servlet-class>com.company.web.DepartmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <url-pattern>/DepartmentServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>com.company.web.EmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/EmployeeServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PositionServlet</servlet-name>
+        <servlet-class>com.company.web.PositionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PositionServlet</servlet-name>
+        <url-pattern>/PositionServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
