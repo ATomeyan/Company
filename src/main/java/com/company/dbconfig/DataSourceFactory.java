@@ -5,16 +5,33 @@ import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+
 public final class DataSourceFactory {
 
     private static PoolingDataSource dataSource = null;
+    private static final Properties PROPERTIES = new Properties();
 
-    private static final String URL = "jdbc:mysql://localhost:3306/company";
-    private static final String USER = "root";
-    private static final String PASS = "root";
-    private static final String CLASS_NAME = "com.mysql.cj.jdbc.Driver";
+    static {
+        try {
+            final FileInputStream inputStream = new FileInputStream("D:\\Projects\\IdeaProjects\\Company\\src\\main\\resources\\database.properties");
+            PROPERTIES.load(inputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final String URL = PROPERTIES.getProperty("db.url");
+    private static final String USER = PROPERTIES.getProperty("db.user");
+    private static final String PASS = PROPERTIES.getProperty("db.password");
+    private static final String CLASS_NAME = PROPERTIES.getProperty("db.classname");
+
 
     private DataSourceFactory() {
+
     }
 
     public static PoolingDataSource getInstance() {
