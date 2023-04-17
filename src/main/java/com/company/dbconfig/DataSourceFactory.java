@@ -5,8 +5,8 @@ import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 
@@ -17,7 +17,8 @@ public final class DataSourceFactory {
 
     static {
         try {
-            final FileInputStream inputStream = new FileInputStream("D:\\Projects\\IdeaProjects\\Company\\src\\main\\resources\\database.properties");
+            ClassLoader classLoader = DataSourceFactory.class.getClassLoader();
+            final InputStream inputStream = classLoader.getResourceAsStream("database.properties");
             PROPERTIES.load(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
