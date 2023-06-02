@@ -56,8 +56,6 @@
                         </th>
                         <th><%="Gender"%>
                         </th>
-<%--                        <th><%="Active"%>--%>
-<%--                        </th>--%>
                         <th><%="Position Id"%>
                         </th>
                         <th><%="Department Id"%>
@@ -73,13 +71,35 @@
                             <td><c:out value="${employee.dateOfBirth}"/></td>
                             <td><c:out value="${employee.email}"/></td>
                             <td><c:out value="${employee.gender}"/></td>
-<%--                            <td><c:out value="${employee.active}"/></td>--%>
                             <td><c:out value="${employee.positionId}"/></td>
                             <td><c:out value="${employee.departmentId}"/></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+
+                <c:if test="${currentPage != 1}">
+                    <td><a href="employee.do?page=${currentPage - 1}">Previous</a></td>
+                </c:if>
+
+                <table border="1" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <c:forEach begin="1" end="${noOfPages}" var="i">
+                            <c:choose>
+                                <c:when test="${currentPage eq i}">
+                                    <td>${i}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><a href="employee.do?page=${i}">${i}</a></td>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </tr>
+                </table>
+
+                <c:if test="${currentPage lt noOfPages}">
+                    <td><a href="employee.do?page=${currentPage + 1}">Next</a></td>
+                </c:if>
             </div>
         </div>
     </c:otherwise>

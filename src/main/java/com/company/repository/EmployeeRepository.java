@@ -21,7 +21,7 @@ public class EmployeeRepository {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee");
              ResultSet resultSet = preparedStatement.executeQuery()){
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 employees.add(DataConverter.resultSetToEmployee(resultSet));
             }
         }

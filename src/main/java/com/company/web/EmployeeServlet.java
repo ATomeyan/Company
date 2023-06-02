@@ -23,7 +23,7 @@ public class EmployeeServlet extends HttpServlet {
         try {
             dispatcher.forward(request, response);
         } catch (IOException | ServletException e) {
-            LOGGER.error("" + e.getMessage());
+            LOGGER.error(" " + e.getMessage());
         }
     }
 }
